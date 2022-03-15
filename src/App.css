@@ -34,7 +34,7 @@ align-items: center;
 
 body {
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -101,7 +101,7 @@ body {
   top: -20px;
   transform: translateY(0);
   transition: transform 200ms;
-  width: 76px;
+  width: 10vw;
 }
 
 .cut-short {

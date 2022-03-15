@@ -145,8 +145,6 @@ export class App extends Component {
         <h1 className="title">Two Truths & A Lie</h1>
         <div className="FullForm">
           <div className="input-container ic1">
-            <div className="cut"></div>
-            <label className="placeholder">User Name</label>
             <input
               type="text"
               name="username"
@@ -154,52 +152,50 @@ export class App extends Component {
               value={username}
               onChange={this.handleUsernameOnInputChange}
             />
+            <div className="cut"></div>
+            <label className="placeholder">User Name</label>
           </div>
+
           <div className="PromptsInput">
             <form className="FactInputs" onSubmit={this.handlePromptsOnSubmit}>
               <div className="input-container ic1">
+                <input
+                  type="text"
+                  className="input"
+                  name="promptOne"
+                  value={this.text}
+                  onChange={this.handlePromptOneOnInputChange}
+                />
                 <div className="cut"></div>
                 <label className="placeholder">Fact One</label>
+              </div>
+              <input
+                type="checkbox"
+                checked={this.state.promptOne.isLie}
+                name="promptOne"
+                onChange={this.handleLieBoxChange}
+              />
+              <label className="subtitle">1 is the lie</label>
+
+              <div className="input-container ic1">
                 <input
                   type="text"
+                  name="promptTwo"
                   className="input"
-                  name="promptOne"
                   value={this.text}
                   onChange={this.handlePromptOneOnInputChange}
                 />
-              </div>
-              <label className="subtitle">
-                1 is the lie{" "}
-                <input
-                  type="checkbox"
-                  checked={this.state.promptOne.isLie}
-                  name="promptOne"
-                  onChange={this.handleLieBoxChange}
-                />
-              </label>
-              <div className="input-container ic1">
                 <div className="cut"></div>
                 <label className="placeholder">Fact Two</label>
-                <input
-                  type="text"
-                  name="promptTwo"
-                  className="input"
-                  value={this.text}
-                  onChange={this.handlePromptOneOnInputChange}
-                />
               </div>
-              <label className="subtitle">
-                2 is the lie{" "}
-                <input
-                  type="checkbox"
-                  checked={this.state.promptTwo.isLie}
-                  name="promptTwo"
-                  onChange={this.handleLieBoxChange}
-                />
-              </label>
+              <input
+                type="checkbox"
+                checked={this.state.promptTwo.isLie}
+                name="promptTwo"
+                onChange={this.handleLieBoxChange}
+              />
+              <label className="subtitle">2 is the lie</label>
               <div className="input-container ic1">
-                <div className="cut"></div>
-                <label className="placeholder">"Fact" Three</label>
                 <input
                   type="text"
                   name="promptThree"
@@ -207,22 +203,25 @@ export class App extends Component {
                   value={this.text}
                   onChange={this.handlePromptOneOnInputChange}
                 />
+
+                <div className="cut"></div>
+                <label className="placeholder">Fact Three</label>
               </div>
-              <label className="subtitle">
-                3 is the lie{" "}
-                <input
+                              <input
                   type="checkbox"
                   checked={this.state.promptThree.isLie}
                   name="promptThree"
                   onChange={this.handleLieBoxChange}
                 />
-              </label>
-              <div></div>
+
+              <label className="subtitle">3 is the lie</label>
             </form>
           </div>
         </div>
+        <div>
         <button onClick={this.handleSendVote}>Vote!</button>
         <button onClick={this.sendPrompts}>Send Prompts</button>
+        </div>
       </div>
     );
   }
