@@ -38,6 +38,9 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .form {
@@ -155,4 +158,8 @@ body {
 
 .submit:active {
   background-color: #06b;
+}
+
+.lie {
+  color: white;
 }

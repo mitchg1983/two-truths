@@ -142,32 +142,35 @@ export class App extends Component {
     const { username } = this.state;
     return (
       <div className="form">
-        <h1 className="title">Two Truths & A Lie</h1>
-        <div className="FullForm">
+        <div className="title">Two Truths & A Lie</div>
           <div className="input-container ic1">
             <input
+            id="user-name"
               type="text"
               name="username"
+              placeholder=" "
               className="input"
               value={username}
               onChange={this.handleUsernameOnInputChange}
             />
             <div className="cut"></div>
-            <label className="placeholder">User Name</label>
+            <label for="user-name" className="placeholder">User Name</label>
           </div>
 
           <div className="PromptsInput">
             <form className="FactInputs" onSubmit={this.handlePromptsOnSubmit}>
               <div className="input-container ic1">
                 <input
+                id="prompt-one"
                   type="text"
                   className="input"
+                  placeholder=" "
                   name="promptOne"
                   value={this.text}
                   onChange={this.handlePromptOneOnInputChange}
                 />
                 <div className="cut"></div>
-                <label className="placeholder">Fact One</label>
+                <label for="prompt-one" className="placeholder">Fact One</label>
               </div>
               <input
                 type="checkbox"
@@ -180,13 +183,15 @@ export class App extends Component {
               <div className="input-container ic1">
                 <input
                   type="text"
+                  id="prompt-two"
+                  placeholder=" "
                   name="promptTwo"
                   className="input"
                   value={this.text}
                   onChange={this.handlePromptOneOnInputChange}
                 />
                 <div className="cut"></div>
-                <label className="placeholder">Fact Two</label>
+                <label for="prompttwo" className="placeholder">Fact Two</label>
               </div>
               <input
                 type="checkbox"
@@ -197,7 +202,9 @@ export class App extends Component {
               <label className="subtitle">2 is the lie</label>
               <div className="input-container ic1">
                 <input
+                id="prompt-three"
                   type="text"
+                  placeholder=" "
                   name="promptThree"
                   className="input"
                   value={this.text}
@@ -205,7 +212,7 @@ export class App extends Component {
                 />
 
                 <div className="cut"></div>
-                <label className="placeholder">Fact Three</label>
+                <label for="prompt-three" className="placeholder">Fact Three</label>
               </div>
                               <input
                   type="checkbox"
@@ -217,7 +224,7 @@ export class App extends Component {
               <label className="subtitle">3 is the lie</label>
             </form>
           </div>
-        </div>
+
         <div>
         <button onClick={this.handleSendVote}>Vote!</button>
         <button onClick={this.sendPrompts}>Send Prompts</button>
