@@ -42,6 +42,7 @@ export class App extends Component {
         text: "",
         isLie: false,
       },
+      color: "green",
     };
   }
 
@@ -138,96 +139,219 @@ export class App extends Component {
     });
   };
 
+  onRadioChange = (e) => {
+    this.setState({
+      color: e.target.value,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     const { username } = this.state;
     return (
-      <div className="form">
-        <div className="title">Two Truths & A Lie</div>
-          <div className="input-container ic1">
-            <input
-            id="user-name"
-              type="text"
-              name="username"
-              placeholder=" "
-              className="input"
-              value={username}
-              onChange={this.handleUsernameOnInputChange}
-            />
-            <div className="cut"></div>
-            <label for="user-name" className="placeholder">User Name</label>
-          </div>
+      <div className="App">
+        <div className="bubbles">
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
 
-          <div className="PromptsInput">
-            <form className="FactInputs" onSubmit={this.handlePromptsOnSubmit}>
-              <div className="input-container ic1">
+          <div className="form">
+            <div className="title">Two Truths & A Lie</div>
+            <div className="input-container ic1">
+              <input
+                id="user-name"
+                type="text"
+                name="username"
+                placeholder=" "
+                className="input"
+                value={username}
+                onChange={this.handleUsernameOnInputChange}
+              />
+              <div className="cut"> -User Name</div>
+              <label htmlFor="user-name" className="placeholder">
+                User Name
+              </label>
+            </div>
+
+            <div className="PromptsInput">
+              <form
+                className="FactInputs"
+                onSubmit={this.handlePromptsOnSubmit}
+              >
+                <div className="input-container ic1">
+                  <input
+                    id="prompt-one"
+                    type="text"
+                    className="input"
+                    placeholder=" "
+                    name="promptOne"
+                    value={this.text}
+                    onChange={this.handlePromptOneOnInputChange}
+                  />
+                  <div className="cut"> -Fact One</div>
+                  <label htmlFor="prompt-one" className="placeholder">
+                    Fact One
+                  </label>
+                </div>
                 <input
-                id="prompt-one"
-                  type="text"
-                  className="input"
-                  placeholder=" "
+                  type="checkbox"
+                  checked={this.state.promptOne.isLie}
                   name="promptOne"
-                  value={this.text}
-                  onChange={this.handlePromptOneOnInputChange}
+                  onChange={this.handleLieBoxChange}
                 />
-                <div className="cut"></div>
-                <label for="prompt-one" className="placeholder">Fact One</label>
-              </div>
-              <input
-                type="checkbox"
-                checked={this.state.promptOne.isLie}
-                name="promptOne"
-                onChange={this.handleLieBoxChange}
-              />
-              <label className="subtitle">1 is the lie</label>
+                <label className="subtitle">1 is the lie</label>
 
-              <div className="input-container ic1">
+                <div className="input-container ic1">
+                  <input
+                    type="text"
+                    id="prompt-two"
+                    placeholder=" "
+                    name="promptTwo"
+                    className="input"
+                    value={this.text}
+                    onChange={this.handlePromptOneOnInputChange}
+                  />
+                  <div className="cut"> -Fact Two</div>
+                  <label htmlFor="prompt-two" className="placeholder">
+                    Fact Two
+                  </label>
+                </div>
                 <input
-                  type="text"
-                  id="prompt-two"
-                  placeholder=" "
+                  type="checkbox"
+                  checked={this.state.promptTwo.isLie}
                   name="promptTwo"
-                  className="input"
-                  value={this.text}
-                  onChange={this.handlePromptOneOnInputChange}
+                  onChange={this.handleLieBoxChange}
                 />
-                <div className="cut"></div>
-                <label for="prompttwo" className="placeholder">Fact Two</label>
-              </div>
-              <input
-                type="checkbox"
-                checked={this.state.promptTwo.isLie}
-                name="promptTwo"
-                onChange={this.handleLieBoxChange}
-              />
-              <label className="subtitle">2 is the lie</label>
-              <div className="input-container ic1">
-                <input
-                id="prompt-three"
-                  type="text"
-                  placeholder=" "
-                  name="promptThree"
-                  className="input"
-                  value={this.text}
-                  onChange={this.handlePromptOneOnInputChange}
-                />
+                <label className="subtitle">2 is the lie</label>
+                <div className="input-container ic1">
+                  <input
+                    id="prompt-three"
+                    type="text"
+                    placeholder=" "
+                    name="promptThree"
+                    className="input"
+                    value={this.text}
+                    onChange={this.handlePromptOneOnInputChange}
+                  />
 
-                <div className="cut"></div>
-                <label for="prompt-three" className="placeholder">Fact Three</label>
-              </div>
-                              <input
+                  <div className="cut"> -Fact Three</div>
+                  <label htmlFor="prompt-three" className="placeholder">
+                    Fact Three
+                  </label>
+                </div>
+                <input
                   type="checkbox"
                   checked={this.state.promptThree.isLie}
                   name="promptThree"
                   onChange={this.handleLieBoxChange}
                 />
 
-              <label className="subtitle">3 is the lie</label>
-            </form>
-          </div>
+                <label className="subtitle">3 is the lie</label>
+              </form>
+            </div>
 
-        <div>
-        <button onClick={this.handleSendVote}>Vote!</button>
-        <button onClick={this.sendPrompts}>Send Prompts</button>
+            <div>
+              <button onClick={this.handleSendVote}>Vote!</button>
+              <button onClick={this.sendPrompts}>Send Prompts</button>
+            </div>
+
+            <div className="colorSubmit">
+              <form onSubmit={this.onSubmit}>
+                <strong>Select Color:</strong>
+
+                <ul>
+                  <li>
+                    <label className="subtitle">
+                      <input
+                        type="radio"
+                        value="blue"
+                        checked={this.state.color === "blue"}
+                        onChange={this.onRadioChange}
+                      />
+                      <span>Blue</span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label className="subtitle">
+                      <input
+                        type="radio"
+                        value="orange"
+                        checked={this.state.color === "orange"}
+                        onChange={this.onRadioChange}
+                      />
+                      <span>Ornage</span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label className="subtitle">
+                      <input
+                        type="radio"
+                        value="purple"
+                        checked={this.state.color === "purple"}
+                        onChange={this.onRadioChange}
+                      />
+                      <span>Purple</span>
+                    </label>
+                  </li>
+                </ul>
+
+                <button type="submit">Choose Color</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     );
